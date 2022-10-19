@@ -1,0 +1,22 @@
+.Left
+{
+background-color: black;
+min-width: 15%;
+max-width:40%;
+width:25%;
+height: 100%;
+}
+.Left::after
+{   content: '';
+    background-color: grey;
+    position: absolute;
+    left:var(--pseudo);
+    width: 4px;
+    height: 100%;
+    cursor: ew-resize;
+   
+}
+.Page
+{width:100vw;
+height:100vh;
+}
