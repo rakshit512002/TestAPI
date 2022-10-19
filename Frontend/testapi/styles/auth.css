@@ -1,0 +1,65 @@
+.authbody
+{
+    background-color: white;
+    width: 400px;
+    padding: 50px;
+    height :auto;
+    margin-top: auto;
+    border-radius: 50px;
+    position: relative;
+    top:100px;
+   
+}
+#auth1
+{
+
+}
+#auth2
+{
+    display :none;
+}
+.btn1
+{   background-image: url('/images/login.png');
+    
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 30px;
+    border-radius: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+.linktext
+{color: blue;
+cursor: pointer;}
+.name
+{padding: 10px;
+margin-bottom: 30px;
+margin-top: 10px;
+}
+.email
+{    padding: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.password
+{  padding: 10px;
+    margin-bottom: 30px;
+    margin-top: 10px;
+}
+.lab1
+{
+    position: relative;
+    font-size: 20px;
+    justify-items: center;
+}
+.logpg
+{
+    background-image: url('/images/login.png');
+    width:100vw;
+    height:100vh;
+    background-size: 100%;
+    margin-top: 0%;
+    padding: 0px;
+}
