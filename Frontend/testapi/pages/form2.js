@@ -36,7 +36,13 @@ export default function Form2() {
    const result = await response.json()
     if(`${result.name}`=="undefined")
     { //sweet alert to be used later
-      alert('Invalid user name or password');
+      
+      swal({
+        title: "Invalid user name or password",
+        
+        icon: "error",
+        button: "continue",
+      });
     }
     else
     {

@@ -1,3 +1,4 @@
+import swal from 'sweetalert';
 export default function Form1() {
     // Handles the submit event on form submit.
     const handleSubmit = async (event) => {
@@ -35,8 +36,13 @@ export default function Form1() {
       // If server returns the name submitted, that means the form works.
      const result = await response.json()
       if(`${result.name}`=="undefined")
-      {
-        alert('User already exist');
+      {// sweet alert to be used later
+        swal({
+          title: "User already registered",
+          
+          icon: "error",
+          button: "continue",
+        });
       }
       else
       {
