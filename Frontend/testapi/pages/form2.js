@@ -45,7 +45,11 @@ export default function Form2() {
       });
     }
     else
-    {
+    { localStorage.setItem('name',`${result.name}`)
+    localStorage.setItem('_id',`${result._id}`)
+    localStorage.setItem('email',`${result.email}`)
+    localStorage.setItem('token',`${result.token}`)
+    localStorage.setItem('isAdmin',`${result.isAdmin}`)
       window.location.replace("../main");
 
     }

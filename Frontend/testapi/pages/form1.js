@@ -43,9 +43,14 @@ export default function Form1() {
           icon: "error",
           button: "continue",
         });
+        //  npm install sweetalert --save
       }
       else
-      {
+      {localStorage.setItem('name',`${result.name}`)
+      localStorage.setItem('_id',`${result._id}`)
+      localStorage.setItem('email',`${result.email}`)
+      localStorage.setItem('token',`${result.token}`)
+      localStorage.setItem('isAdmin',`${result.isAdmin}`)
         window.location.replace("../main");
 
       }
@@ -55,11 +60,11 @@ export default function Form1() {
      
         <form onSubmit={handleSubmit} id="auth1">
         <label className='lab1'>Name</label><br></br>
-        <input type="text" placeholder="Enter Your Name" name="name" id="name" className="name"></input><br></br>
+        <input type="text" placeholder="Enter Your Name" name="name" id="name1" className="name" minLength="4"></input><br></br>
         <label className='lab1'>Email</label><br></br>
-        <input type="email" placeholder="xyz@gamil.com" name="email" id="email" className="email"></input><br></br>
+        <input type="email" placeholder="xyz@gamil.com" name="email" id="email" className="email" minLength="4"></input><br></br>
         <label className='lab1'>Password</label><br></br>
-        <input type="password" placeholder="*********" name="password" id="password" className="password"></input><br></br>
+        <input type="password" placeholder="*********" name="password" id="password" className="password" minLength="8"></input><br></br>
         <button type="submit"  value="submit" className="btn1">
             Sign Up
         </button>

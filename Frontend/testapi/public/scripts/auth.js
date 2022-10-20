@@ -1,9 +1,10 @@
-
+document.onload=check3;
 var auth1=document.getElementById('auth1');
 var auth2=document.getElementById('auth2');
 var link1=document.getElementById('link1');
 var link2=document.getElementById('link2');
 var auth=document.getElementById('authbody');
+
 function check1(){
     //document.getElementById('authbody').style.display='none';
     auth2.style.display='block';
@@ -20,4 +21,12 @@ function check2(){
 }
 link1.onclick=check1;
 link2.onclick=check2;
-
+function check3()
+{//alert(localStorage.getItem('name'));
+    if(localStorage.hasOwnProperty("name"))
+    {
+        window.location.replace("../main");
+    }
+}
+//setInterval(check3,1000);
+onDOMContentLoaded = check3();
