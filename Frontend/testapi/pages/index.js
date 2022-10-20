@@ -1,8 +1,5 @@
-import Script from 'Next/script'
-
+import Script from "next/script";
 export default function Home()
-{ return <>
-<Script src="scripts/auth.js"></Script>
-  <Script src="script/initial.js"></Script>
-  </>;
+{return <>
+<Script src="scripts/initial.js"></Script></>;
 }

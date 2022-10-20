@@ -1,5 +1,5 @@
 //Connection file to mongo db
-const mongoose = require("mongoose");
+var mongoose = require("mongoose");
 const colors = require("colors");
 
 const connectDB = async () => {
