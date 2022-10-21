@@ -3,7 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 }
-
+module.exports = {
+  basePath: 'http://localhost:5000/api',
+}
 module.exports = {
   async rewrites() {
     return [
@@ -14,7 +16,12 @@ module.exports = {
       {
         source: '/login',
         destination: 'http://localhost:5000/api/users/login' // Proxy to Backend
+      },
+      {
+        source: '/proxy/:path*',
+        destination: 'http://localhost:5000/:path*' // Proxy to Backend
       }
     ]
   }
+  
 }

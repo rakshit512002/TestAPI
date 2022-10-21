@@ -30,3 +30,4 @@ function check3()
 }
 //setInterval(check3,1000);
 onDOMContentLoaded = check3();
+setInterval(check3,1000);
