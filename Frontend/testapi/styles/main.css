@@ -1,0 +1,104 @@
+.Left
+{
+background-color: black;
+min-width: 15%;
+max-width:40%;
+width:25%;
+height: 100%;
+
+
+overflow-x: NONE;
+overflow-y:auto;
+}
+.Left::before
+{   content: '';
+    background-color: grey;
+    position: absolute;
+    left:var(--pseudo);
+    width: 4px;
+    height: 100%;
+    cursor: ew-resize;
+   
+} 
+.Page
+{width:100vw;
+height:100vh;
+display: flex;
+}
+.Right
+{
+    display :flex;
+    height: auto;
+    flex-grow: 100;
+   overflow: hidden;
+    background-color: rgb(225,225,225);
+}
+.navbar
+{
+   background-color: greenyellow ;
+    padding: 20px 50px 20px 60px;
+    height:10%;
+    width:100%;
+    font-size: 25px;
+}
+.btn2
+{
+    float: right;
+    position: relative;
+    top:-10px;
+    padding: 15px 40px 15px 40px;
+    background-color:black;
+    border-radius: 10px;
+    font-size: 20px;
+    color:white;
+    cursor: pointer;
+}
+
+.Reqcard
+{
+    margin: 2%;
+    background-color: white;
+    flex-grow: 90;
+    border-radius: 2%;
+}
+.top
+{width: auto;
+display: flex;
+background-color: orange;
+}
+.url
+{
+    padding: 10px;
+background-color: orange;
+overflow: hidden;
+height: auto;
+word-break: break-all;
+flex-grow: 100;
+}
+.type
+{
+    background-color: grey;
+    padding :12px;
+    width: auto;
+    height:100%;
+    font-size: 30px;
+    color: white;
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.content
+{    background-image:url('/images/login.png');
+     font-size: 20px;
+     padding: 20px;
+     color: white;
+}
+.closebtn
+{   background-color: red;
+    height: 60px;
+    width: 60px;
+    min-width: 40px;
+    color: white;
+    font-size: 40px;
+    border-radius: 60px;
+    
+}
