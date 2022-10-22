@@ -33,6 +33,9 @@ const sendRequest = asyncHandler(async (req, res) => {
     url = request.url,
     token = request.token;
 
+  // Un-Stringing (Parsing) Of JSON Object
+  content = JSON.parse(content);
+
   // Now we will send the request to 3rd party API
   if (type === "GET") {
     try {
