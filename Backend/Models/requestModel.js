@@ -16,7 +16,7 @@ const requestSchema = mongoose.Schema(
     },
     token: {
       type: String,
-      required: true,
+      required: false,
     },
     user: {
       type: mongoose.Schema.Types.ObjectId,
