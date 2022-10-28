@@ -30,7 +30,7 @@ const getRequestById = asyncHandler(async (req, res) => {
 const createRequest = asyncHandler(async (req, res) => {
   const { type, content, url, token } = req.body;
 
-  if (!type || !content || !url || !token) {
+  if (!type || !url) {
     res.status(400);
     throw new Error("Please Fill all the feilds");
     return;
