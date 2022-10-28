@@ -1,4 +1,6 @@
 import swal from 'sweetalert';
+
+
 export default function Form1() {
     // Handles the submit event on form submit.
     const handleSubmit = async (event) => {
@@ -14,6 +16,7 @@ export default function Form1() {
   
       // Send the data to the server in JSON format.
       const JSONdata = JSON.stringify(data)
+     // alert(JSONdata);
   //alert(JSONdata);     // API endpoint where we send form data.
       const endpoint = '/register'
       
@@ -23,7 +26,7 @@ export default function Form1() {
         method: 'POST',
         // Tell the server we're sending JSON.
         headers: {
-          'Content-Type': 'application/json',
+          'Authorization': 'application/json',
         },
         // Body of the request is the JSON data we created above.
         body: JSONdata,
@@ -46,7 +49,8 @@ export default function Form1() {
         //  npm install sweetalert --save
       }
       else
-      {localStorage.setItem('name',`${result.name}`)
+      {setCookie('token',`${result.token}`,1000);
+        localStorage.setItem('name',`${result.name}`)
       localStorage.setItem('_id',`${result._id}`)
       localStorage.setItem('email',`${result.email}`)
       localStorage.setItem('token',`${result.token}`)
@@ -64,7 +68,8 @@ export default function Form1() {
         <label className='lab1'>Email</label><br></br>
         <input type="email" placeholder="xyz@gamil.com" name="email" id="email" className="email" minLength="4"></input><br></br>
         <label className='lab1'>Password</label><br></br>
-        <input type="password" placeholder="*********" name="password" id="password" className="password" minLength="8"></input><br></br>
+        <input type="password" placeholder="*********" name="password" id="password"className="password"></input>
+        <img className='passvis'src='./images/passvis.png' id='passvis'></img><br></br>
         <button type="submit"  value="submit" className="btn1">
             Sign Up
         </button>

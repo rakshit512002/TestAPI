@@ -1,3 +1,5 @@
+import swal from 'sweetalert';
+
 export default function Form2() {
   // Handles the submit event on form submit.
   const handleSubmit = async (event) => {
@@ -8,11 +10,12 @@ export default function Form2() {
     const data = {
       
       email: event.target.email.value,
-      password:event.target.password.value,
+      password:event.target.password1.value,
     }
 
     // Send the data to the server in JSON format.
     const JSONdata = JSON.stringify(data)
+    //alert(JSONdata)
 //alert(JSONdata);     // API endpoint where we send form data.
     const endpoint = '/login'
     
@@ -45,7 +48,8 @@ export default function Form2() {
       });
     }
     else
-    { localStorage.setItem('name',`${result.name}`)
+    { setCookie('token',`${result.token}`,1000);
+      localStorage.setItem('name',`${result.name}`)
     localStorage.setItem('_id',`${result._id}`)
     localStorage.setItem('email',`${result.email}`)
     localStorage.setItem('token',`${result.token}`)
@@ -61,7 +65,8 @@ export default function Form2() {
     <label className='lab1'>Email</label><br></br>
     <input type="email" placeholder="xyz@gamil.com" name="email" id="email" className="email"></input><br></br>
     <label className='lab1'>Password</label><br></br>
-    <input type="password" placeholder="*********" name="password" id="password"className="password"></input><br></br>
+    <input type="password" placeholder="*********" name="password1" id="password1" className="password"></input>
+    <img className='passvis1'src='./images/passvis.png' id='passvis1'></img><br></br>
     <button type="submit" value="submit" className="btn1">
         Login
     </button>

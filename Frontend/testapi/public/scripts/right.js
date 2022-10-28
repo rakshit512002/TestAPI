@@ -11,5 +11,5 @@ function check1()
         window.location.replace("../auth");
     }
 }
-setInterval(check1,1000);
+//setInterval(check1,1000);
 onDOMContentLoaded = check1();

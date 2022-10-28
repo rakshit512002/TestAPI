@@ -1,51 +1,59 @@
-import Req from "./req"
-export default function Left()
-{
-
-//    const data = {
-//       name: event.target.name.value,
-//       email: event.target.email.value,
-//       password:event.target.password.value,
-//     }
-
-//     // Send the data to the server in JSON format.
-//     const JSONdata = JSON.stringify(data)
-// //alert(JSONdata);     // API endpoint where we send form data.
-//     const endpoint = '/register'
+import Req from "./req";
+function Left()
+ {  
+  const leftdata = async (event) => {
+  // Stop the form from submitting and refreshing the page.
+  event.preventDefault();
+  const endpoint="/proxy/api/requests";
+  // Get data from the form.
+///  alert(event.target.token.value)
+  const data = {
+    Authorization:event.target.token.value
+  }
+  const JSONdata = JSON.stringify(data)
+//  alert(JSONdata);
+  const options = {
+    // The method is POST because we are sending data.
+    method: 'GET',
+    // Tell the server we're sending JSON.
+    headers: {
+      Authorization:`${event.target.token.value}`
+    }
+    // Body of the request is the JSON data we created above.
+  
+  }
+  const response = await fetch(endpoint, options)
+ //alert(JSON.stringify(options['headers']))
+    // Get the response data from server as JSON.
+    // If server returns the name submitted, that means the form works.
+    const result = await response.json()
+    //alert(JSON.stringify(result))
+   // document.getElementById('ld').innerHTML=JSON.stringify(result);
+   document.getElementById('ld').innerHTML="";
+   for (let i=0; i<result.length; i++){
     
-//     // Form the request for sending data to the server.
-//     const options = {
-//       // The method is POST because we are sending data.
-//       method: 'POST',
-//       // Tell the server we're sending JSON.
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       // Body of the request is the JSON data we created above.
-//       body: JSONdata,
-//     }
-
-//     // Send the form data to our forms API on Vercel and get a response.
-//    const response = await fetch(endpoint, options)
- 
-//     // Get the response data from server as JSON.
-//     // If server returns the name submitted, that means the form works.
-//    const result = await response.json()
-
-
-
-
-   return (<>
-   
-   <div className="Left" id="Left">
-      
-   
-
-{/*       
-    <Req Type='GET' URL="http:5000//localhost/api/user1" Content="{name: 'raj'
-   email : 'raj@gmail.com'}{name: 'raj' email : 'raj@gmail.com'}{name: 'raj' email : 'raj@gmail.com'}{name: 'raj' email : 'raj@gmail.com'}"></Req> */}
-   </div>
-   
-   
-   </>)
+      document.getElementById('ld').innerHTML+="<div class='Bord'><div class='Reqcard'>"+
+      "<div class='top'>"+      
+          "<div class='type'>"+result[i].type+"</div>"+
+          "<div class='url'>"+result[i].url+"</div>"+
+           "<button class='closebtn'>X</button>"+
+      "</div><div class='content'>"+result[i].content+"</div>"+"</div></div> "
+  
+ }
+ document.getElementById('ld').innerHTML+="<img class='plus' src='./images/add.png'/>" 
 }
+
+  return< div className='Left' id='Left' >
+    <div id="ld" className="id">
+      Loading data...
+    </div>
+    <form className="auto1" onSubmit={leftdata}>
+      <input type='text' name="token" id="token" ></input>
+      <button type="submit" id='loadreq'>submit</button>
+    </form>
+    </div>
+
+} 
+
+
+export default Left;

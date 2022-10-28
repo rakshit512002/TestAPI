@@ -13,4 +13,4 @@ else
 
 
 onDOMContentLoaded = check1();
-setTimeout(check1,1000);
+//setTimeout(check1,1000);

@@ -21,6 +21,11 @@ module.exports = {
         source: '/proxy/:path*',
         destination: 'http://localhost:5000/:path*' // Proxy to Backend
       }
+      ,
+      {
+        source: '/ar',
+        destination: 'http://localhost:5000/api/requests' // Proxy to Backend
+      }
     ]
   }
   
