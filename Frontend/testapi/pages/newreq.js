@@ -1,10 +1,14 @@
 import Script from "next/script"
+import swal from 'sweetalert';
 export default function NewReq()
-{const createdata = async (e) => {
+{
+
+  const createdata = async (e) => {
     e.preventDefault()
-    alert('hello');
+   // alert('hello');
     // Stop the form from submitting and refreshing the page.
     //event.preventDefault();
+    const button =document.activeElement.getAttribute('value');
     const a=document.getElementById('GET').checked;
     const b=document.getElementById('POST').checked;
     const c=document.getElementById('PUT').checked;
@@ -18,47 +22,48 @@ export default function NewReq()
   typex="PUT";
   else if(d)
   typex="DELETE";
-  alert(typex)
-    const data = {
-        type: typex,
-        content: e.target.Body.value,
-        url :e.target.link.value,
-        token:e.target.usertoken.value,
-      }
-      alert(e.target.token1.value)
-      alert(data)
-      
-  
-      // Send the data to the server in JSON format.
-      const JSONdata = JSON.stringify(data)
-      alert(JSONdata)
-     // alert(JSONdata);
-  //alert(JSONdata);     // API endpoint where we send form data.
-      const endpoint = '/proxy/api/requests/create'
-      
-      // Form the request for sending data to the server.
-      const options = {
-        // The method is POST because we are sending data.
-        method: 'POST',
-        // Tell the server we're sending JSON.
-        headers: {
-          Authorization:e.target.token1.value
-        },
-        // Body of the request is the JSON data we created above.
-        body: JSONdata
-    }
-        const response = await fetch(endpoint, options)
+  //alert(typex)
  
-       
-       const result = await response.json()
-        alert(JSON.stringify(result))
+  if(button=="create")
+  {const endpoint = '/proxy/api/requests/create';
+  const data = {
+    type: typex,
+    content: e.target.Body.value,
+    url :e.target.link.value,
+    token:e.target.usertoken.value,
+  }
+  const JSONdata=JSON.stringify(data);
+  const options = {
+  
+    method: 'POST',
+  
+    headers: {
+      Authorization:e.target.token1.value,
+      'Content-Type': 'application/json'
+    },
+  
+    body: JSONdata
+}
+    const response = await fetch(endpoint, options)
 
-    // Send the form data to our forms API on Vercel and get a response.
+   
+   const result = await response.json()
+   if(`${result.url}`=="undefined")
+   { //sweet alert to be used later
+     
+     swal({
+       title: "Please fill all the fields",
+       
+       icon: "error",
+       button: "Try again",
+     });
+}
+}
   
 }
     return <div className="NewReq">
-        <Script src="scripts/newreq.js"></Script>
-        <form  onSubmit={createdata} className="reqform">
+        
+        <form   className="reqform" id="reqform" onSubmit={createdata}>
         <input type='text' name="token" id="token1" className="token hide"></input>
         <div className="radbtn">
         <input type='radio' name="reqtype" id='GET' checked="checked"/>
@@ -82,7 +87,7 @@ export default function NewReq()
         <br></br>
         <input type='text' placeholder='asdyfaksvh usdfkuhsahfsudgsdf sgdshgdgudif' className="usertoken" id="usertoken"></input>
         <br></br>
-      <button type="submit" value="submit" id='createreq' className="btn4">Create New request</button>
+      <button type="submit" name="createreq" value="create" id='createreq' className="btn4">Create New request</button>
         </form>
     </div>
 }
