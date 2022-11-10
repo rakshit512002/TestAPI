@@ -1,11 +1,4 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  swcMinify: true,
-}
-module.exports = {
-  basePath: 'http://localhost:5000/api',
-}
+
 module.exports = {
   async rewrites() {
     return [

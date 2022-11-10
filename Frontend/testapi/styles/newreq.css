@@ -12,6 +12,7 @@ padding: 30px;
     padding: 10px;
     border-radius: 10px;
     cursor: pointer;
+    
 }
 .reqform
 {
@@ -121,4 +122,41 @@ top:2px;
   width: 80%;
   height: 100px;
   font-size: 30px;
+}
+.btnlist
+{
+  display: none;
+}
+.savebtn
+{
+  background-color: blue;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left:7%;
+  margin-right:7%;
+}
+.delbtn
+{
+  background-color:gold;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left:7%;
+  margin-right:7%;
+}
+.runbtn
+{
+  background-color:blue;
+  color: white;
+  font-size: 30px;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left:7%;
+  margin-right:7%;
 }

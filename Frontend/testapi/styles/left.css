@@ -69,3 +69,8 @@ flex-grow: 100;
 {
     display:none;
 }
+.plus
+{
+    cursor: pointer;
+    
+}

@@ -8,6 +8,7 @@ export default function NewReq()
    // alert('hello');
     // Stop the form from submitting and refreshing the page.
     //event.preventDefault();
+  
     const button =document.activeElement.getAttribute('value');
     const a=document.getElementById('GET').checked;
     const b=document.getElementById('POST').checked;
@@ -59,6 +60,18 @@ export default function NewReq()
      });
 }
 }
+else if(button=="save")
+{
+
+}
+else if(button=="del")
+{
+
+}
+else if(button=="run")
+{
+
+}
   
 }
     return <div className="NewReq">
@@ -88,6 +101,11 @@ export default function NewReq()
         <input type='text' placeholder='asdyfaksvh usdfkuhsahfsudgsdf sgdshgdgudif' className="usertoken" id="usertoken"></input>
         <br></br>
       <button type="submit" name="createreq" value="create" id='createreq' className="btn4">Create New request</button>
+      <div className="btnlist" id="btnlist">
+        <button type="submit" className="savebtn" id="savebtn" value="save">Save</button>
+        <button type="submit" className="delbtn" id="delbtn" value="del">Delete</button>
+        <button type="submit" className="runbtn" id="runbtn" value="run"> Run </button>
+      </div>
         </form>
     </div>
 }
