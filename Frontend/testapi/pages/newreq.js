@@ -62,7 +62,42 @@ export default function NewReq()
 }
 else if(button=="save")
 {
+  const endpoint = '/proxy/api/requests/:id';
+  const data = {
+    _id:e.target._id.value,
+    type: typex,
+    content: e.target.Body.value,
+    url :e.target.link.value,
+    token:e.target.usertoken.value,
+    
+  }
+  const JSONdata=JSON.stringify(data);
+  const options = {
+  
+    method: 'POST',
+  
+    headers: {
+      Authorization:e.target.token1.value,
+      'Content-Type': 'application/json'
+    },
+  
+    body: JSONdata
+}
+    const response = await fetch(endpoint, options)
 
+   
+   const result = await response.json()
+   alert(JSON.stringify(result));
+   if(`${result.url}`=="undefined")
+   { //sweet alert to be used later
+     
+     swal({
+       title: "Please fill all the fields",
+       
+       icon: "error",
+       button: "Try again",
+     });
+}
 }
 else if(button=="del")
 {
@@ -78,6 +113,7 @@ else if(button=="run")
         
         <form   className="reqform" id="reqform" onSubmit={createdata}>
         <input type='text' name="token" id="token1" className="token hide"></input>
+        <input type='text' name='_id' id='_id' className="hide" ></input>
         <div className="radbtn">
         <input type='radio' name="reqtype" id='GET' checked="checked"/>
         <label for= 'GET' id='GET'>GET</label>
