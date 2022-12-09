@@ -62,9 +62,10 @@ export default function NewReq()
 }
 else if(button=="save")
 {
-  const endpoint = '/proxy/api/requests/:id';
+  const endpoint = '/proxy/api/requests/';
+  endpoint+=e.target._id.value;
   const data = {
-    _id:e.target._id.value,
+    
     type: typex,
     content: e.target.Body.value,
     url :e.target.link.value,
@@ -74,7 +75,7 @@ else if(button=="save")
   const JSONdata=JSON.stringify(data);
   const options = {
   
-    method: 'POST',
+    method: 'PUT',
   
     headers: {
       Authorization:e.target.token1.value,
@@ -87,7 +88,7 @@ else if(button=="save")
 
    
    const result = await response.json()
-   alert(JSON.stringify(result));
+   
    if(`${result.url}`=="undefined")
    { //sweet alert to be used later
      
@@ -101,11 +102,36 @@ else if(button=="save")
 }
 else if(button=="del")
 {
+  const endpoint = '/proxy/api/requests/';
+  endpoint+=e.target._id.value;
+  const data = {
+    
+    type: typex,
+    content: e.target.Body.value,
+    url :e.target.link.value,
+    token:e.target.usertoken.value,
+    
+  }
+  const JSONdata=JSON.stringify(data);
+  const options = {
+  
+    method: 'DELETE',
+  
+    headers: {
+      Authorization:e.target.token1.value,
+      'Content-Type': 'application/json'
+    },
+  
+    body: JSONdata
+}
+    const response = await fetch(endpoint, options)
 
+   
+   const result = await response.json()
 }
 else if(button=="run")
 {
-
+  
 }
   
 }
