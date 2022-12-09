@@ -104,15 +104,8 @@ else if(button=="del")
 {
   const endpoint = '/proxy/api/requests/';
   endpoint+=e.target._id.value;
-  const data = {
-    
-    type: typex,
-    content: e.target.Body.value,
-    url :e.target.link.value,
-    token:e.target.usertoken.value,
-    
-  }
-  const JSONdata=JSON.stringify(data);
+  
+  
   const options = {
   
     method: 'DELETE',
@@ -122,7 +115,7 @@ else if(button=="del")
       'Content-Type': 'application/json'
     },
   
-    body: JSONdata
+   
 }
     const response = await fetch(endpoint, options)
 
@@ -132,6 +125,32 @@ else if(button=="del")
 else if(button=="run")
 {
   
+  const endpoint = '/proxy/api/requests/send/';
+  endpoint+=e.target._id.value;
+  
+  
+  const options = {
+  
+    method: 'DELETE',
+  
+    headers: {
+      Authorization:e.target.token1.value,
+      'Content-Type': 'application/json'
+    },
+  
+   
+}
+    const response = await fetch(endpoint, options)
+
+   
+   const result = await response.json()
+   swal({
+   
+    text:JSON.stringify(result)
+    
+  });
+
+   
 }
   
 }
