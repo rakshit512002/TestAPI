@@ -50,7 +50,7 @@ const createRequest = asyncHandler(async (req, res) => {
 });
 
 //@description     Delete single Request
-//@route           GET /api/requests/:id
+//@route           DELETE /api/requests/:id
 //@access          Private
 const deleteRequest = asyncHandler(async (req, res) => {
   const request = await Request.findById(req.params.id);

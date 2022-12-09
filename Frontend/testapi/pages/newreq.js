@@ -127,11 +127,18 @@ else if(button=="run")
   
   const endpoint = '/proxy/api/requests/send/';
   endpoint+=e.target._id.value;
-  
-  
+  const data = {
+    
+    type: typex,
+    content: e.target.Body.value,
+    url :e.target.link.value,
+    token:e.target.usertoken.value,
+    
+  }
+  const JSONdata=JSON.stringify(data);
   const options = {
   
-    method: 'DELETE',
+    method: 'GET',
   
     headers: {
       Authorization:e.target.token1.value,
@@ -144,11 +151,13 @@ else if(button=="run")
 
    
    const result = await response.json()
-   swal({
    
-    text:JSON.stringify(result)
-    
-  });
+   
+     
+     swal({
+       text:JSON.stringify(result)
+     });
+
 
    
 }
