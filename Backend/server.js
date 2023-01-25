@@ -32,7 +32,7 @@ const sendRequest = asyncHandler(async (req, res) => {
     content = request.content,
     url = request.url,
     token = request.token;
-    console.log(content);
+    // console.log(content);
   // Un-Stringing (Parsing) Of JSON Object
   if(content==="")
   {
@@ -105,15 +105,18 @@ const sendRequest = asyncHandler(async (req, res) => {
       throw new Error(message);
     }
   } else if (type === "POST") {
-    console.log(req.body);
+    const dta={title:'foo',body:'bar',userId:1}
+    // console.log(content)
+    // console.log(JSON.stringify(content))
+    // console.log(req.body);
     try {
       const fig = {
         headers: {
           "Content-Type": "application/json",
           Authorization: `${token}`,
         },
-        body:JSON.stringify(content)
-        
+        body:content,
+       
       };
 
       const { data } = await axios.post(url, fig);
