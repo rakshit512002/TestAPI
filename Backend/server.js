@@ -70,12 +70,15 @@ const sendRequest = asyncHandler(async (req, res) => {
           "Content-Type": "application/json",
           Authorization: `${token}`,
         },
+        body:content,
+       
       };
 
-      const { data } = await axios.put(url, content, fig);
+      const { data } = await axios.post(url, fig);
 
       res.status(201).json(data);
     } catch (error) {
+      console.log(error);
       const message =
         error.response && error.response.data.message
           ? error.response.data.message
@@ -105,10 +108,7 @@ const sendRequest = asyncHandler(async (req, res) => {
       throw new Error(message);
     }
   } else if (type === "POST") {
-    const dta={title:'foo',body:'bar',userId:1}
-    // console.log(content)
-    // console.log(JSON.stringify(content))
-    // console.log(req.body);
+    
     try {
       const fig = {
         headers: {

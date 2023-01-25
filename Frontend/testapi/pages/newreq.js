@@ -156,7 +156,9 @@ else if(button=="run")
    
      
      swal({
+      title:"Result",
        text:JSON.stringify(result)
+       
      });
 
 
