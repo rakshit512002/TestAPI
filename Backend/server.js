@@ -32,9 +32,15 @@ const sendRequest = asyncHandler(async (req, res) => {
     content = request.content,
     url = request.url,
     token = request.token;
-
+    console.log(content);
   // Un-Stringing (Parsing) Of JSON Object
-  content = JSON.parse(content);
+  if(content==="")
+  {
+
+    
+  }
+  // else
+  // content = JSON.parse(content);
 
   // Now we will send the request to 3rd party API
   if (type === "GET") {
@@ -99,18 +105,22 @@ const sendRequest = asyncHandler(async (req, res) => {
       throw new Error(message);
     }
   } else if (type === "POST") {
+    console.log(req.body);
     try {
       const fig = {
         headers: {
           "Content-Type": "application/json",
           Authorization: `${token}`,
         },
+        body:JSON.stringify(content)
+        
       };
 
-      const { data } = await axios.post(url, content, fig);
+      const { data } = await axios.post(url, fig);
 
       res.status(201).json(data);
     } catch (error) {
+      console.log(error);
       const message =
         error.response && error.response.data.message
           ? error.response.data.message
