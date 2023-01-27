@@ -32,15 +32,7 @@ const sendRequest = asyncHandler(async (req, res) => {
     content = request.content,
     url = request.url,
     token = request.token;
-    // console.log(content);
-  // Un-Stringing (Parsing) Of JSON Object
-  if(content==="")
-  {
-
-    
-  }
-  // else
-  // content = JSON.parse(content);
+   
 
   // Now we will send the request to 3rd party API
   if (type === "GET") {
