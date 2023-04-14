@@ -27,11 +27,12 @@ const userSchema = mongoose.Schema(
   }
 );
 
+// Here we have defined a function in the schema to be used by an instance/object of the schema in the future use whenever a user tries to login
 userSchema.methods.matchPassword = async function (enteredPassword) {
   return await bcrypt.compare(enteredPassword, this.password);
 };
 
-// This functionality will encrypt password everytime its saved
+// This functionality will encrypt password everytime its changed in the user profile
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) {
     next();
