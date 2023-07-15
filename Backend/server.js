@@ -32,7 +32,6 @@ const sendRequest = asyncHandler(async (req, res) => {
     content = request.content,
     url = request.url,
     token = request.token;
-   
 
   // Now we will send the request to 3rd party API
   if (type === "GET") {
@@ -62,8 +61,7 @@ const sendRequest = asyncHandler(async (req, res) => {
           "Content-Type": "application/json",
           Authorization: `${token}`,
         },
-        body:content,
-       
+        body: content,
       };
 
       const { data } = await axios.post(url, fig);
@@ -100,15 +98,13 @@ const sendRequest = asyncHandler(async (req, res) => {
       throw new Error(message);
     }
   } else if (type === "POST") {
-    
     try {
       const fig = {
         headers: {
           "Content-Type": "application/json",
           Authorization: `${token}`,
         },
-        body:content,
-       
+        body: content,
       };
 
       const { data } = await axios.post(url, fig);
